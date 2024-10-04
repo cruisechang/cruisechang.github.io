@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>chatgpt on Cruise Blog</title>
+    <link>https://blog.cruisechang.com/tags/chatgpt/</link>
+    <description>Recent content in chatgpt on Cruise Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright>
+    <lastBuildDate>Sat, 04 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.cruisechang.com/tags/chatgpt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ChatGPT Command</title>
+      <link>https://blog.cruisechang.com/post/chatgpt/</link>
+      <pubDate>Sat, 04 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.cruisechang.com/post/chatgpt/</guid>
+      <description>
+        
+          &lt;h2 id=&#34;chatgpt-command&#34;&gt;ChatGPT Command&lt;/h2&gt;
+&lt;p&gt;紀錄 chatgpt 用法&lt;/p&gt;
+&lt;h3 id=&#34;act-as-linux-terminal&#34;&gt;Act as linux terminal&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;I want you to act as a Linux terminal, 
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;I will type commands and you will reply with what the terminal should show. 
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;I want you to reply with the terminal output inside a unique code block and nothing else.
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;do not write explanations.
+&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;do not type commands unless I instruct you to do so.
+&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;When I need to tell you something in English I will do so by putting text inside curly brackets {something like this}.
+&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;my first command is pwd.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lynx https://medium.com/@neonforge/learn-how-to-use-the-magic-of-terraform-locals-step-by-step-guide-68fd3fb776
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;模擬-python-執行&#34;&gt;模擬 python 執行&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;echo -e &amp;#34;x = lambda y: y*5+3;print(&amp;#39;Result: &amp;#39; + str(x(6)))&amp;#34; &amp;gt; run.py &amp;amp;&amp;amp; python3 run.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

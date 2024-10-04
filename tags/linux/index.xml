@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on Cruise Blog</title>
+    <link>https://blog.cruisechang.com/tags/linux/</link>
+    <description>Recent content in linux on Cruise Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright>
+    <lastBuildDate>Tue, 14 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.cruisechang.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux free</title>
+      <link>https://blog.cruisechang.com/post/linux-cmd-free/</link>
+      <pubDate>Tue, 14 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.cruisechang.com/post/linux-cmd-free/</guid>
+      <description>
+        
+          &lt;h2 id=&#34;free&#34;&gt;free&lt;/h2&gt;
+&lt;p&gt;NAME&lt;/p&gt;
+&lt;p&gt;calloc, free, malloc, realloc, reallocf, valloc, aligned_alloc -- memory allocation&lt;/p&gt;
+&lt;p&gt;free是從 /proc/meminfo讀取資料&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;shell&amp;gt;free
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;//單位Bytes
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;shell&amp;gt;free -b 
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;//單位MB
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;shell&amp;gt;free -m 
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;//單位GB 
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;shell&amp;gt;free -g  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;//實體記憶體加上swap 
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;shell&amp;gt;free -t  
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;total
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;used
+&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;fee
+&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;shared
+&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;buffers：(buffer cache)relatively temporary storage for raw disk blocks.
+&lt;span class=&#34;ln&#34;&gt;8&lt;/span&gt;cached：(page cache)in memory cache for files read from disk, doesn&amp;#39;t include swapcache 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;# free
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;             total       used       free     shared    buffers     cached
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;Mem:       3848656    2983016     865640       5312     324432    2024904
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;-/+ buffers/cache:     633680    3214976
+&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;Swap:      2031612          0    2031612
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;buffers--表示 block device 使用的暫存頁。包括：直接讀寫設備、以及文件系统元数据(metadata)比如SuperBlock所使用的暫存頁。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;block devie 泛指 disc I/O&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;關於 block device 我們關心這幾件事：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;iowait：I/O等待的時間。這個時間是CPU花在等待I/O完成的時間，iowait越長，代表I/O系統存在著瓶頸。&lt;/li&gt;
+&lt;li&gt;queue：Queue的平均長度。I/O queue越長，代表著越多I/O在排隊，表示disk有瓶頸。&lt;/li&gt;
+&lt;li&gt;average wait：I/O平均等待時間。不同於iowait，average wait指的是當系統發出一個I/O請求時，平均要等多少時間才會被處理。這時間包含I/O處理以及在queue中等待的時間。&lt;/li&gt;
+&lt;li&gt;傳輸率，也就是每秒有多少個讀取或寫入的I/O動作。&lt;/li&gt;
+&lt;li&gt;Block r/w，每秒進行的block read/write的個數。Block的大小是根據kernel的定義，從512 bytes, 1KB 到 4KB都有。&lt;/li&gt;
+&lt;li&gt;KB r/w，每秒read/write多少KB，這是最常見的throughput代表。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;cached--表示普通文件使用的暫存頁。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://linuxperf.com/?p=32&#34;&gt;buffers 和 cache 的區別&lt;/a&gt;&lt;/p&gt;
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Linux sysctl</title>
+      <link>https://blog.cruisechang.com/post/linux-cmd-sysctl/</link>
+      <pubDate>Tue, 14 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.cruisechang.com/post/linux-cmd-sysctl/</guid>
+      <description>
+        
+          &lt;h2 id=&#34;sysctl&#34;&gt;sysctl&lt;/h2&gt;
+&lt;p&gt;NAME&lt;/p&gt;
+&lt;p&gt;sysctl -- get or set kernel state&lt;/p&gt;
+&lt;p&gt;SYNOPSIS&lt;/p&gt;
+&lt;p&gt;sysctl [-bdehiNnoqx] name[=value] ...
+sysctl [-bdehNnoqx] -a&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;//顯示某個變數
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;shell&amp;gt;sysctl kernel.ostype
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;//列出全部變數
+&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;shell&amp;gt; sysctl -a  
+&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;//grep 變數
+&lt;span class=&#34;ln&#34;&gt;8&lt;/span&gt;shell&amp;gt; sysctl -a | grep tcp_timeout
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;//改變數
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;shell&amp;gt;sysctl -w variable = value  
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;shell&amp;gt;sysctl -w net.ipv4.ip_forward=1        
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;//修改設定檔 sysctl.conf
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;shell&amp;gt; vi /etc/sysct.conf
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;//載入設定檔，不需重開機 (載入 /etc/sysct.conf)
+&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;shell&amp;gt; sysctl -p
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;//重新載入以下所有檔案
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;shell&amp;gt; sysctl --system
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;/run/sysctl.d/*.conf
+&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;/etc/sysctl.d/*.conf
+&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;/usr/local/lib/sysctl.d/*.conf
+&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;/usr/lib/sysctl.d/*.conf
+&lt;span class=&#34;ln&#34;&gt;8&lt;/span&gt;/lib/sysctl.d/*.conf
+&lt;span class=&#34;ln&#34;&gt;9&lt;/span&gt;/etc/sysctl.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

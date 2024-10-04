@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>software-architecture on Cruise Blog</title>
+    <link>https://blog.cruisechang.com/tags/software-architecture/</link>
+    <description>Recent content in software-architecture on Cruise Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright>
+    <lastBuildDate>Sat, 14 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.cruisechang.com/tags/software-architecture/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Software Architecture</title>
+      <link>https://blog.cruisechang.com/post/software-architecture/</link>
+      <pubDate>Sat, 14 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.cruisechang.com/post/software-architecture/</guid>
+      <description>
+        
+          &lt;h2 id=&#34;software-architecture&#34;&gt;software architecture&lt;/h2&gt;
+&lt;p&gt;這篇紀錄軟體架構的的各種觀念。&lt;/p&gt;
+&lt;h3 id=&#34;軟體架構師的責任&#34;&gt;軟體架構師的責任&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;理解架構需求與限制&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;理解業務目標，管理架構驅動力
+滿足「功能需求」及「非功能需求」及「環境限制」
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;設計軟體&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;依據業務、需求建立軟體系統的的整體架構
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;技術選擇(技術風險管理)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;選擇「合用的技術」
+技術的討論、驗證、測試
+未來不會有問題的技術
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;架構演進&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;架構的持續更迭
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;編寫程式&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;持續寫程式，實踐自己做的架構
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;保證品質&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;進行要求，及使用各種工具、技術，確保軟件品質
+例如會議、unittest、code review、swagger、flow 規範
+訂定各種標準
+確保團隊對架構一致執行    
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;軟體架構師的能力&#34;&gt;軟體架構師的能力&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;他是通才型專家&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;須知道多種技術
+深度與廣度並存
+著眼大局觀，而非只看小處
+他不一定是團隊中程式寫得最好的人
+對於不知道的事，找到能合作的人才是方法
+他能回答類似問題：為什麼這個技術合適？這個決策的利弊？系統設計有哪些選擇？
+如何證明這個架構有效？如何確保品質？
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;具備軟技能&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;領導力：創造願景，帶領團隊像共同目標前進
+溝通：有效像團隊溝通你的設計、想法、願景
+影響力：用勸說、談判、操控去讓團隊追求你要的結果
+信心：是一切基礎
+合作：與他人合作
+指導：對不了解的人指導
+輔導：對某人進行學習指引
+動力：保持團隊愉快、開朗、積極。要面對團隊中一些人不買賬
+潤滑劑：不同意見時要想法達成共識
+政治：處理政治
+責任感：不逃避責任
+授權：授權給其他人
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;有時軟技能比技術重要&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;和諧的團隊才能做事，團隊內鬨一切都免談
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;具體技術&#34;&gt;具體技術&lt;/h3&gt;
+&lt;h5 id=&#34;基礎&#34;&gt;基礎&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;電腦系統&lt;/li&gt;
+&lt;li&gt;作業系統&lt;/li&gt;
+&lt;li&gt;電腦網路&lt;/li&gt;
+&lt;li&gt;資料結構、演算法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;軟體架構&#34;&gt;軟體架構&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;設計模式&lt;/li&gt;
+&lt;li&gt;微服務&lt;/li&gt;
+&lt;li&gt;高併發&lt;/li&gt;
+&lt;li&gt;clean code&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;系統&#34;&gt;系統&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;儲存 mysql&lt;/li&gt;
+&lt;li&gt;暫存 redis&lt;/li&gt;
+&lt;li&gt;消息隊列 rabbitMQ&lt;/li&gt;
+&lt;li&gt;RPC gRPC&lt;/li&gt;
+&lt;li&gt;reverseProxy nginx、haproxy、LVS(Linux Virtual Serve)&lt;/li&gt;
+&lt;li&gt;消息隊列 rabbitMQ&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;每個專案的規範&#34;&gt;每個專案的規範&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;Coding Style&lt;/li&gt;
+&lt;li&gt;專案目錄結構&lt;/li&gt;
+&lt;li&gt;介面定義 討論&lt;/li&gt;
+&lt;li&gt;日誌規範&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;開發流程&#34;&gt;開發流程&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;Jira + Github flow&lt;/li&gt;
+&lt;li&gt;Code review&lt;/li&gt;
+&lt;li&gt;版本控制&lt;/li&gt;
+&lt;li&gt;測試流程&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;devops&#34;&gt;devOps&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;Docker&lt;/li&gt;
+&lt;li&gt;Jenkins&lt;/li&gt;
+&lt;li&gt;Ansible&lt;/li&gt;
+&lt;li&gt;監控 Prometheus、grafana&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;各場景方案&#34;&gt;各場景方案&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;支付&lt;/li&gt;
+&lt;li&gt;直播&lt;/li&gt;
+&lt;li&gt;直銷階級&lt;/li&gt;
+&lt;li&gt;會員&lt;/li&gt;
+&lt;li&gt;活動&lt;/li&gt;
+&lt;li&gt;搶購/秒殺&lt;/li&gt;
+&lt;/ul&gt;
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

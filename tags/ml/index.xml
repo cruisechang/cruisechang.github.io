@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ml on Cruise Blog</title>
+    <link>https://blog.cruisechang.com/tags/ml/</link>
+    <description>Recent content in ml on Cruise Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright>
+    <lastBuildDate>Tue, 28 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.cruisechang.com/tags/ml/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Machine Learning</title>
+      <link>https://blog.cruisechang.com/post/ml-01/</link>
+      <pubDate>Tue, 28 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.cruisechang.com/post/ml-01/</guid>
+      <description>
+        
+          &lt;h2 id=&#34;ml-basics&#34;&gt;ML Basics&lt;/h2&gt;
+&lt;p&gt;ML 基本概念&lt;/p&gt;
+&lt;p&gt;Machine learning basics, such as Regression,Classification,
+Structured Learning&lt;/p&gt;
+&lt;h3 id=&#34;ml-就是找出一個-function&#34;&gt;ML 就是找出一個 function&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Speech Recognition - 找出輸入一段語音，輸出語音內容。&lt;/li&gt;
+&lt;li&gt;Image Recognition - 輸入一張圖片，輸出圖片內容。&lt;/li&gt;
+&lt;li&gt;Playing Go - 輸入圍棋盤面，輸出下一步位置。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Function 可分為：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Regression - outputs a scalar. 輸出量化數值的function&lt;/li&gt;
+&lt;li&gt;Classification - Give options(classes), function outputs a correct one.
+輸出正確的選擇結果。
+例如輸入email, 輸出是否為垃圾郵件 (true/false)。
+輸入圍棋盤面，輸出19x19的某個位置。&lt;/li&gt;
+&lt;li&gt;Structured Learning - 輸出結構化的結果，例如文章、圖片。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;如何找出這個-function&#34;&gt;如何找出這個 function&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;定義一個含有未知參數的 function&lt;/p&gt;
+&lt;p&gt;f = (unknown parameter, sure parameter ...)&lt;/p&gt;
+&lt;p&gt;假設定義一個預測今日瀏覽數的 function&lt;/p&gt;
+&lt;p&gt;f = b+wx&lt;/p&gt;
+&lt;p&gt;b,w 是未知參數，x 是 已知參數(feature)&lt;/p&gt;
+&lt;p&gt;(已知參數稱為feature)&lt;/p&gt;
+&lt;p&gt;假設 w=weight, b=bias, x=昨天的瀏覽數&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Define loss from training data&lt;/p&gt;
+&lt;p&gt;隨便定義w, b, 並套用已知的參數，去算結果。&lt;/p&gt;
+&lt;p&gt;然後看結果跟實際資料(label)差多少。&lt;/p&gt;
+&lt;p&gt;(實際資料稱為label)&lt;/p&gt;
+&lt;p&gt;loss=|結果的差的絕對值|&lt;/p&gt;
+&lt;p&gt;loss=|結果的差的絕對值|(平方)&lt;/p&gt;
+&lt;p&gt;loss=mean absolute error (MAE)&lt;/p&gt;
+&lt;p&gt;loss=mean square error (MSE)&lt;/p&gt;
+&lt;p&gt;窮舉各種 w,b 的組合，可以得到各種 loss 結果。
+我們把他畫成等高線圖(error surface)，然後最接近適時的那一個組合，就是最好的組合。&lt;/p&gt;
+&lt;p&gt;如此我們就能得到一組 w,b。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Optimization&lt;/p&gt;
+&lt;p&gt;找出一組最好好的 w,b&lt;/p&gt;
+&lt;p&gt;Gradient Decent 梯度下降 - 唯一會用到的方法&lt;/p&gt;
+&lt;p&gt;先假設只有一個未知參數 w, 畫出 x軸為w, y 軸為 loss 圖 (一維)&lt;/p&gt;
+&lt;p&gt;隨便定義一個初始點 w0, 然後算出這個點的 w對l 的微分。（或是算出 w0 位置對 l 線的切線斜率）&lt;/p&gt;
+&lt;p&gt;斜率是負的，就把 w 放大(loss 會變小)，反之亦然。&lt;/p&gt;
+&lt;p&gt;每次 w 要增加多少，是用斜率跟一個自訂 learning rate 決定的。
+(自訂的參數稱為 hyper parameters)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;shell&amp;gt;free
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;//單位Bytes
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;shell&amp;gt;free -b 
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;//單位MB
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;shell&amp;gt;free -m 
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;//單位GB 
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;shell&amp;gt;free -g  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;//實體記憶體加上swap 
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;shell&amp;gt;free -t  
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;total
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;used
+&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;fee
+&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;shared
+&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;buffers：(buffer cache)relatively temporary storage for raw disk blocks.
+&lt;span class=&#34;ln&#34;&gt;8&lt;/span&gt;cached：(page cache)in memory cache for files read from disk, doesn&amp;#39;t include swapcache 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;# free
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;             total       used       free     shared    buffers     cached
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;Mem:       3848656    2983016     865640       5312     324432    2024904
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;-/+ buffers/cache:     633680    3214976
+&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;Swap:      2031612          0    2031612
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;buffers--表示 block device 使用的暫存頁。包括：直接讀寫設備、以及文件系统元数据(metadata)比如SuperBlock所使用的暫存頁。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;block devie 泛指 disc I/O&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;關於 block device 我們關心這幾件事：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;iowait：I/O等待的時間。這個時間是CPU花在等待I/O完成的時間，iowait越長，代表I/O系統存在著瓶頸。&lt;/li&gt;
+&lt;li&gt;queue：Queue的平均長度。I/O queue越長，代表著越多I/O在排隊，表示disk有瓶頸。&lt;/li&gt;
+&lt;li&gt;average wait：I/O平均等待時間。不同於iowait，average wait指的是當系統發出一個I/O請求時，平均要等多少時間才會被處理。這時間包含I/O處理以及在queue中等待的時間。&lt;/li&gt;
+&lt;li&gt;傳輸率，也就是每秒有多少個讀取或寫入的I/O動作。&lt;/li&gt;
+&lt;li&gt;Block r/w，每秒進行的block read/write的個數。Block的大小是根據kernel的定義，從512 bytes, 1KB 到 4KB都有。&lt;/li&gt;
+&lt;li&gt;KB r/w，每秒read/write多少KB，這是最常見的throughput代表。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;cached--表示普通文件使用的暫存頁。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://linuxperf.com/?p=32&#34;&gt;buffers 和 cache 的區別&lt;/a&gt;&lt;/p&gt;
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>
